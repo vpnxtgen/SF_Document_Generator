@@ -122,4 +122,4 @@ class SalesforceTopicGenerator:
 
           
 sf = SalesforceTopicGenerator('Salesforce_Notes.docx') 
-sf.processTopic("Salesforce Objects")
+sf.processTopic("Comparison: Lookup vs. Master-Detail for Many-to-Many Relationships in Salesforce")
