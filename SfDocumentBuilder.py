@@ -122,4 +122,4 @@ class SalesforceTopicGenerator:
 
           
 sf = SalesforceTopicGenerator('Salesforce_Notes.docx') 
-sf.processTopic("What is Salesforce and its key features?")
+sf.processTopic("Salesforce Formula Fields")
