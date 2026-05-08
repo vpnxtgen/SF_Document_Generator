@@ -59,12 +59,12 @@ class SalesforceTopicGenerator:
               
               # Add the summary
               doc.add_heading('Summary', level=1)
-              summary_para = doc.add_paragraph(json_response['summary'])
+              summary_para = doc.add_paragraph(json_response['summary'], style='List Bullet')
               
               # Add sections
               for section in json_response['sections']:
                   doc.add_heading(section['heading'], level=2)
-                  doc.add_paragraph(section['content'])
+                  doc.add_paragraph(section['content'], style='List Bullet')
               
               # 4. Add Best Practices as a Bullet List
               doc.add_heading('Best Practices', level=3)
@@ -122,4 +122,4 @@ class SalesforceTopicGenerator:
 
           
 sf = SalesforceTopicGenerator('Salesforce_Notes.docx') 
-sf.processTopic("Comparison: Lookup vs. Master-Detail for Many-to-Many Relationships in Salesforce")
+sf.processTopic("What is Salesforce and its key features?")
