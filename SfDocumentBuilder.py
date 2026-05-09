@@ -13,11 +13,21 @@ class SalesforceTopicGenerator:
         print('Inside the prompt function')
         
         return f"""
-                    Generate a comprehensive Salesforce technical guide for the topic: "{topic}".
-
-                    The guide must be structured for both beginners and experts. 
-                    Include: Key Concepts, Best Practices, Limitations, and a Code/Scenario Example.
-                """
+        Generate a comprehensive Salesforce technical guide for the topic: "{topic}".
+        Return the response STRICTLY as a JSON object with this structure:
+        {{
+            "topic": "{topic}",
+            "summary": "Brief 2-sentence overview",
+            "sections": [
+                {{"heading": "Core Mechanics", "content": "Point 1; Point 2"}},
+                {{"heading": "Advanced Use Cases", "content": "Point 1; Point 2"}}
+            ],
+            "best_practices": ["Practice 1", "Practice 2"],
+            "limitations": ["Limit 1", "Limit 2"],
+            "example": "Code or Scenario description"
+        }}
+        Ensure all content is concise and bullet-point ready.
+        """
     
     
     def processTopic(self, topic):
@@ -120,6 +130,7 @@ class SalesforceTopicGenerator:
             print(f"Error appending to document: {e}")
 
 
-          
+'''      
 sf = SalesforceTopicGenerator('Salesforce_Notes.docx') 
-sf.processTopic("Salesforce Formula Fields")
+sf.processTopic("Salesforce Roll-Up Summary Fields")
+'''

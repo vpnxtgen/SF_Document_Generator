@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salesforce Document Generator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0176d3, #00a1e0);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle glow for images */
+        .img-glow {
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+
+        /* Animation for Astro mascot */
+        .astro-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center p-6">
+
+    <!-- Astro Mascot Floating in Background -->
+    <div class="fixed top-10 right-10 w-32 astro-float hidden lg:block">
+        <img src="https://www.salesforce.com/content/dam/sfdc-docs/www/en_us/icons/astro-head.svg" alt="Astro" class="img-glow">
+    </div>
+
+    <div class="glass-card w-full max-w-5xl rounded-3xl p-8 text-white">
+
+        <!-- Header -->
+        <div class="text-center mb-8 relative">
+            <!-- Salesforce Cloud Logo -->
+            <div class="flex justify-center mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce Logo" class="h-16 bg-white p-2 rounded-xl img-glow">
+            </div>
+            
+            <h1 class="text-5xl font-bold mb-3 tracking-tight">
+                Document Generator
+            </h1>
+
+            <p class="text-lg text-slate-100">
+                Upload your prompt file and generate Salesforce concept documentation instantly.
+            </p>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Upload Section -->
+            <div class="bg-white/10 rounded-2xl p-6 border border-white/5">
+
+                <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+                    <span>📁</span> Upload Prompt
+                </h2>
+
+                <label 
+                    for="fileInput"
+                    class="group border-2 border-dashed border-white/40 rounded-2xl h-60 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 transition duration-300"
+                >
+
+                    <div class="mb-4 transform group-hover:scale-110 transition duration-300">
+                        <!-- Technical Icon for Upload -->
+                        <img src="https://www.salesforce.com/content/dam/sfdc-docs/www/en_us/icons/standard-objects/file_120.png" alt="File Icon" class="w-20 img-glow">
+                    </div>
+
+                    <p class="text-lg font-medium group-hover:text-blue-200 transition">
+                        Click to Upload TXT File
+                    </p>
+
+                    <p class="text-sm text-slate-200 mt-2">
+                        Supported format: .txt
+                    </p>
+
+                    <input 
+                        type="file" 
+                        id="fileInput" 
+                        accept=".txt"
+                        class="hidden"
+                        onchange="handleFile(this)"
+                    />
+                </label>
+
+                <!-- File Name -->
+                <div 
+                    id="fileName"
+                    class="mt-4 text-sm text-center font-mono text-blue-200 bg-blue-900/30 rounded py-1 px-2 hidden"
+                ></div>
+
+            </div>
+
+            <!-- Prompt Section -->
+            <div class="bg-white/10 rounded-2xl p-6 border border-white/5">
+
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-semibold flex items-center gap-2">
+                        <span>👁️</span> Preview
+                    </h2>
+
+                    <button
+                        onclick="clearPrompt()"
+                        class="bg-red-500/80 hover:bg-red-600 px-4 py-2 rounded-lg text-sm font-medium transition backdrop-blur-md"
+                    >
+                        Clear
+                    </button>
+                </div>
+
+                <textarea
+                    id="promptBox"
+                    placeholder="Your Salesforce prompt content will appear here..."
+                    class="w-full h-64 bg-white/20 border border-white/20 rounded-2xl p-4 text-white placeholder-slate-300 outline-none resize-none focus:ring-2 focus:ring-blue-300 transition"
+                ></textarea>
+
+            </div>
+
+        </div>
+        
+        <!-- 1. Wrap your inputs in a FORM tag -->
+    <form action="/generate-sf-doc" method="POST">
+
+        <!-- 2. The Topic Input must have name="topic" -->
+        <div class="mt-8 bg-white/10 rounded-2xl p-6">
+            <h2 class="text-2xl font-semibold mb-4">
+                <span>⚡</span> Salesforce Topic</h2>
+            <input
+                type="text"
+                name="topic" 
+                id="topicInput"
+                placeholder="Example: Apex Triggers..."
+                class="w-full bg-white/20 border border-white/20 rounded-xl p-4 text-white"
+                required
+            />
+            <!-- Hidden input for the storage path -->
+            <input type="hidden" name="storage_path" id="storagePath" value="./output_docs">
+        </div>
+
+        <!-- 3. The Button must be type="submit" -->
+        <div class="mt-8 text-center">
+            <button
+                type="submit"
+                class="bg-white text-blue-700 hover:bg-slate-100 px-10 py-4 rounded-2xl text-lg font-bold shadow-xl"
+            >
+                Generate Document
+            </button>
+        </div>
+    </form>
+
+        
+</body>
+</html>
