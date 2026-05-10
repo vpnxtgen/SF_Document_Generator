@@ -1,0 +1,6 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="893207db-cfdc-55da-9778-caa80d7ddb87")}catch(e){}}();
+var Uc3Fn=class{constructor(){this.Fb=Ucx(UcIj);this.fe=Ucx(Uc7r)}Haa(){const a=i18n.get("teams-generic-error-message",{},[Uchf(0)]);this.Fb.nc(new UcSs({message:a,Zb:"add-team-members-dialog-unknown-error"},{type:3,kna:{message:a,link:{url:this.fe.ej(UcFIe)}}}))}};
+
+
+//# debugId=893207db-cfdc-55da-9778-caa80d7ddb87

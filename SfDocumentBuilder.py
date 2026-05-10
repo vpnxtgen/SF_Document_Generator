@@ -1,6 +1,9 @@
 from AIClient import AIClient as aiprocessor
 from docx import Document
-from docx.shared import Pt
+from docx.shared import Pt, Inches, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
 import os
 
 
@@ -14,18 +17,15 @@ class SalesforceTopicGenerator:
         
         return f"""
         Generate a comprehensive Salesforce technical guide for the topic: "{topic}".
-        Return the response STRICTLY as a JSON object with this structure:
-        {{
-            "topic": "{topic}",
-            "summary": "Brief 2-sentence overview",
-            "sections": [
-                {{"heading": "Core Mechanics", "content": "Point 1; Point 2"}},
-                {{"heading": "Advanced Use Cases", "content": "Point 1; Point 2"}}
-            ],
-            "best_practices": ["Practice 1", "Practice 2"],
-            "limitations": ["Limit 1", "Limit 2"],
-            "example": "Code or Scenario description"
-        }}
+        Requirements:
+        - The content is intended for Salesforce Architect.
+        - Ensure all content is concise and bullet-point ready.
+        - Include deep technical explanations, best practices, real-world architecture considerations, scalability patterns, governance limits, and security implications.
+        - Include beginner-friendly and advanced Salesforce concepts.
+        - Include Salesforce-specific terminology, object relationships, and API suffixes where applicable.
+        - The flow_diagram must visually represent the architecture, workflow, hierarchy, or relationships of the topic.
+        - Keep the response strictly valid JSON.
+        - Do not include markdown formatting or additional explanations outside the JSON.
         Ensure all content is concise and bullet-point ready.
         """
     
@@ -86,7 +86,17 @@ class SalesforceTopicGenerator:
               for limitation in json_response['limitations']:
                   doc.add_paragraph(limitation, style='List Bullet')  
                   
-              # 6. Add Example
+              # --- Pictorial Representation (The Flow) ---
+              doc.add_heading('Data Access Flow', level=1)
+            
+            # Creating a shaded box for the flow diagram representation
+              table = doc.add_table(rows=1, cols=1)
+              table.style = 'Light Grid Accent 1'
+              cell = table.rows[0].cells[0]
+              cell.text = json_response['flow_diagram']['representation'].replace(" -> ", "  ➔  ")
+              cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+                  
+              # 7. Add Example
               doc.add_heading('Example', level=4)
               
               doc.save(self.fileName)
@@ -103,6 +113,10 @@ class SalesforceTopicGenerator:
         try:
             folder_path = r'D:/SF_Interview_Hub'
             
+            if not json_response:
+                print("No response to append to document.")
+                return
+
             if self.fileName:
                 full_path = os.path.join(folder_path, self.fileName)
                 
@@ -122,10 +136,7 @@ class SalesforceTopicGenerator:
                     doc = Document()
                     
                 self.generateDocument(json_response,doc)  # Pass the actual response here
-                    
-                
-            
-            
+
         except Exception as e:
             print(f"Error appending to document: {e}")
 

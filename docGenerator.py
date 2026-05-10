@@ -8,15 +8,14 @@ class DocGenerator:
         
         try:
             if topic:
-                topic = SfDocBuilder('Salesforce_Notes.docx') 
-                topic.processTopic(topic)
+                sf = SfDocBuilder('Salesforce_Notes.docx') 
+                sf.processTopic(topic)
             else :
                 raise ValueError("StoragePath and topic are required to generate the document.")
         
         except Exception as e:
             print(f"Error executing document generation: {e}")
             
-
 
 app = Flask(__name__)
 dg = DocGenerator()

@@ -1,0 +1,7 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="71de7a64-4d43-59fb-b3fc-1dd0c122c766")}catch(e){}}();
+var Ucxno=class{constructor(){this.fe=UcI(Uc7r);this.ba={t_b:i18n.get("ai-disclaimer-v2"),nq:i18n.get("ai-learn-more-link-v2")};this.links={hKg:this.fe.ej(Uc9xj)}}};Ucxno.za=[{type:Uc3,args:[{selector:"lucid-ai-disclaimer",templateUrl:"./aidisclaimer.component.html",Oa:"./aidisclaimer.component.css",changeDetection:UcR.OnPush,imports:[Uc7,UcH5n]}]}];Ucxno.wa=function(a){return new (a||Ucxno)};
+Ucxno.Ka=UcT({type:Ucxno,Fa:[["lucid-ai-disclaimer"]],Ja:1,Ia:3,Ma:[[3,"disclaimerText","linkText","linkUrl"]],template:function(a,b){a&1&&UcZ(0,"lucid-disclaimer",0);a&2&&UcW("disclaimerText",b.ba.t_b)("linkText",b.ba.nq)("linkUrl",b.links.hKg)},dependencies:[Uc7,UcH5n],Ld:2,changeDetection:0});
+
+
+//# debugId=71de7a64-4d43-59fb-b3fc-1dd0c122c766

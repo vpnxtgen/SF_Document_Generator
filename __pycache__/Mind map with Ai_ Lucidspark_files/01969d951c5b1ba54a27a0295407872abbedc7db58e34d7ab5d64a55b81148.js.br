@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"team-invitation-error-growl-do-not-have-teams-access.one\":\"{count} invitation could not be sent because the recipient does not have access to Teams features.\",\"team-invitation-error-growl-do-not-have-teams-access.other\":\"{count} invitations could not be sent because the recipients do not have access to Teams features.\",\"team-invitation-error-growl-invalid-email.one\":\"{count} invitation could not be set due to invalid email.\",\"team-invitation-error-growl-invalid-email.other\":\"{count} invitations could not be set due to invalid emails.\",\"team-invitation-error-growl-unable-to-get-slack-channel-users\":\"Unable to get users in at least one Slack channel.\",\"team-invitation-error-growl-unable-to-invite.one\":\"{count} invitation could not be sent because their email domain is not permitted to join the organization's account.\",\"team-invitation-error-growl-unable-to-invite.other\":\"{count} invitations could not be sent because their email domains are not permitted to join the organization's account.\",\"team-invitation-success-growl-resend-invite-failure\":\"Team invitation could not be resent.\",\"team-invitation-success-growl-resend-invite-success\":\"Team invitation successfully resent!\"}"
+    ),
+    'en'
+);

@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"filtered-generator-filter-false\":\"False\",\"filtered-generator-filter-growl\":\"This card was hidden because it doesn't match your active filters. Adjust your filters to show it.\",\"filtered-generator-filter-growl-plural\":\"These cards were hidden because they don't match your active filters. Adjust your filters to show them.\",\"filtered-generator-filter-true\":\"True\",\"filtered-generator-filter-undo\":\"Undo\",\"hard-refresh-limit-generic-post-request\":\"Your next refresh will be available soon.\",\"hard-refresh-limit-minute-post-request.one\":\"Your next refresh is available in {count} minute.\",\"hard-refresh-limit-minute-post-request.other\":\"Your next refresh is available in {count} minutes.\",\"hard-refresh-limit-second-post-request.one\":\"Your next refresh is available in {count} second.\",\"hard-refresh-limit-second-post-request.other\":\"Your next refresh is available in {count} seconds.\"}"
+    ),
+    'en'
+);

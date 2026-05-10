@@ -1,0 +1,6 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="2289e06b-447b-5c3b-b952-b0b3ab8e01f5")}catch(e){}}();
+const UcPQt=new Uceo(UcLO.xSc),UcQQt=new Uceo(UcLO.VVj);function UcRQt(a){return{[Ucto.key]:a.F4b.Xa(UcLO.className).Rc(),[Ucno.key]:UcLO.HBa,[UcPQt.key]:Uc8n(i18n.get("checklist-block-title"),{bold:!0,size:UcLO.kjt}),[UcQQt.key]:Uc8n(i18n.get("checklist-block-add-new-item"),{italic:!0,color:UcLO.tLv.serialize(),size:UcLO.Zht})}}var UcSQt=class{constructor(){this.F4b=Ucx(UcVqh)}};UcTD.set("checklist",class extends Uc8I{constructor(){const a=Ucx(Uc7I),b=Ucx(UcSQt);super("checklist.js");this.So="^Checklist";UcLO.register(this.id,a.na);this.pf.cu(this.id,{Checklist:{displayName:i18n.get("checklist-block-title"),items:[{className:UcLO.className,ma:()=>UcRQt(b),qya:Uc5re.Xr()}]}});this.pf.cdb(this.id,"checklist",[{className:UcLO.className,defaultProperties:()=>UcRQt(b)}])}});
+
+
+//# debugId=2289e06b-447b-5c3b-b952-b0b3ab8e01f5

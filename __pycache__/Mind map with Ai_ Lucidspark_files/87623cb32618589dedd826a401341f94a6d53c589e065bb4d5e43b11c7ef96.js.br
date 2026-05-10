@@ -1,0 +1,6 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="ed4425fa-d9c5-5046-9b04-de794fc01c2d")}catch(e){}}();
+var UcUio=UcUio||{id:"cake/app/webroot/ts/angular/share/sharedialogcommon/makedocumentownerprompt/token/makedocumentownerprompt.chunk.closure.js"},UcVio=new UcIa(UcUio.id);var UcWio=new Ucbb(UcVio);
+
+
+//# debugId=ed4425fa-d9c5-5046-9b04-de794fc01c2d

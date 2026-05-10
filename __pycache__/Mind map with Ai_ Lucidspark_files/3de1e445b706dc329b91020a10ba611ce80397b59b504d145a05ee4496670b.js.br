@@ -1,0 +1,6 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="4ac32330-402a-5eb5-8188-e75009aaccd0")}catch(e){}}();
+UcTD.set("action",class extends Uc8I{constructor(){const a=Ucx(UcdVg);super("action.js");this.So="^ActionBlock$";UcJD.register(this.id,this.deps.na,a);const b=Ucxc(UcxD).map(c=>{if(a.Woa[c].xX)return{className:UcJD.className,variant:c}}).filter(Ucg);this.pf.cu(this.id,{ActionBlocks:{displayName:i18n.get("action-shape-library-name"),items:b}});this.pf.cdb(this.id,"actionShape",b)}});
+
+
+//# debugId=4ac32330-402a-5eb5-8188-e75009aaccd0

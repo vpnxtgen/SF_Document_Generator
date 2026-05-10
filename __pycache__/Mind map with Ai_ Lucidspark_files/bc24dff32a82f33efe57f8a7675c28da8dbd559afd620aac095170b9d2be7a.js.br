@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"manage-team-dialog-team-comment-description\":\"Can comment but can't edit or share team owned documents.\",\"manage-team-dialog-team-edit-and-share-description\":\"Can edit and share team owned documents.\",\"manage-team-dialog-team-edit-description\":\"Can edit but can't share team owned documents.\",\"manage-team-dialog-team-manager\":\"Manager\",\"manage-team-dialog-team-manager-description\":\"Can edit, share, and manage team members and settings.\",\"manage-team-dialog-team-members\":\"Members\",\"manage-team-dialog-team-view-description\":\"Can view but can't edit, comment, or share team owned documents.\",\"permissions-dropdown-comment-v2\":\"Comment\",\"permissions-dropdown-edit-share-v2\":\"Edit and share\",\"permissions-dropdown-edit-v2\":\"Edit\",\"permissions-dropdown-view-v2\":\"View\"}"
+    ),
+    'en'
+);

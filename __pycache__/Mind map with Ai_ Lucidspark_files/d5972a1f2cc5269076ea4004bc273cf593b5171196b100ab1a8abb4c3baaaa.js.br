@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"collaborator-info-members.one\":\"{count} member\",\"collaborator-info-members.other\":\"{count} members\",\"collaborator-searcher-add-more-collaborators\":\"Add more people...\",\"collaborator-searcher-add-more-collaborators-no-ellipsis\":\"Add more people\",\"collaborator-searcher-enter-collaborators\":\"Enter names, email address, users, or groups...\",\"collaborator-searcher-enter-emails\":\"Enter email address...\",\"create-team-menu-new-team\":\"Create new team\",\"create-team-menu-teammates\":\"With {teammates}\"}"
+    ),
+    'en'
+);

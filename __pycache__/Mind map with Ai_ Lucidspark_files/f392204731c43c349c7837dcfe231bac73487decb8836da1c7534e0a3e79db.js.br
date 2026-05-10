@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"ai-idea-generator-generating-label-v2\":\"Generating ideas...\",\"ai-idea-generator-unknown-failure\":\"We couldn't generate anything for this prompt.\",\"ai-loading-sorting-ideas-v2\":\"Sorting ideas...\",\"ai-refine-in-chat\":\"Refine in chat\",\"ai-summary-summarizing-v2\":\"Summarizing content...\",\"button-cancel\":\"Cancel\"}"
+    ),
+    'en'
+);

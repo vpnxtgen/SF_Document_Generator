@@ -1,0 +1,6 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="40e2096e-239e-58a5-a84a-3e9f5caccfe3")}catch(e){}}();
+UcTD.set("linkunfurl",class extends Uc8I{constructor(){const a=Ucx(Uc7I),b=Ucx(UcPx);super("linkunfurl.js");this.So="^(LinkUnfurl|DocumentUnfurlGenerator)";UcZF.register(this.id,a.na,b);UctHh.register(this.id,a.a6);this.pf.cdb(this.id,"linkUnfurl",[UcZF.className])}});
+
+
+//# debugId=40e2096e-239e-58a5-a84a-3e9f5caccfe3

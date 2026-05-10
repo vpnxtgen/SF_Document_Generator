@@ -62,37 +62,7 @@ class AIClient:
             response = client.models.generate_content(
                     model="gemini-3-flash-preview",
                     contents=prompt,  # Keep your text prompt simple here
-                    config={
-                        'response_mime_type': 'application/json',
-                        'response_schema': {
-                            'type': 'OBJECT',  # Changed from ARRAY unless you want a list of topics
-                            'properties': {
-                                'topic': {'type': 'STRING'},
-                                'summary': {'type': 'STRING'},
-                                'sections': {
-                                    'type': 'ARRAY',
-                                    'items': {
-                                        'type': 'OBJECT',
-                                        'properties': {
-                                            'heading': {'type': 'STRING'},
-                                            'content': {'type': 'STRING'}
-                                        },
-                                        'required': ['heading', 'content']
-                                    }
-                                },
-                                'best_practices': {
-                                    'type': 'ARRAY',
-                                    'items': {'type': 'STRING'}
-                                },
-                                'limitations': {
-                                    'type': 'ARRAY',
-                                    'items': {'type': 'STRING'}
-                                },
-                                'example': {'type': 'STRING'}
-                            },
-                            'required': ['topic', 'summary', 'sections', 'best_practices', 'limitations', 'example']
-                        }
-                    }
+                    config= self.fetchGeminiRequest()
                 )
 
             print('response.text******************', response.text)
@@ -108,6 +78,78 @@ class AIClient:
             print(f"Gemini Connection Error: {e}")
         
         return None
+    
+    def fetchGeminiRequest(self):
+        return {
+                "response_mime_type": "application/json",
+                "response_schema": {
+                    "type": "OBJECT",
+                    "properties": {
+                        "topic": {
+                            "type": "STRING"
+                        },
+                        "summary": {
+                            "type": "STRING"
+                        },
+                        "sections": {
+                            "type": "ARRAY",
+                            "items": {
+                                "type": "OBJECT",
+                                "properties": {
+                                    "heading": {
+                                        "type": "STRING"
+                                    },
+                                    "content": {
+                                        "type": "ARRAY",
+                                        "items": {
+                                            "type": "STRING"
+                                        }
+                                    }
+                                },
+                                "required": ["heading", "content"]
+                            }
+                        },
+                        "best_practices": {
+                            "type": "ARRAY",
+                            "items": {
+                                "type": "STRING"
+                            }
+                        },
+                        "limitations": {
+                            "type": "ARRAY",
+                            "items": {
+                                "type": "STRING"
+                            }
+                        },
+                        "example": {
+                            "type": "STRING"
+                        },
+                        "flow_diagram": {
+                            "type": "OBJECT",
+                            "properties": {
+                                "type": {
+                                    "type": "STRING",
+                                    "description": "Diagram style such as Mind Map, Flowchart, or Architecture Diagram"
+                                },
+                                "representation": {
+                                    "type": "STRING",
+                                    "description": "Structured text-based flow diagram using arrows, hierarchy, and indentation"
+                                }
+                            },
+                            "required": ["type", "representation"]
+                        }
+                    },
+                    "required": [
+                        "topic",
+                        "summary",
+                        "sections",
+                        "best_practices",
+                        "limitations",
+                        "example",
+                        "flow_diagram"
+                    ]
+                }
+            }
         
     def gemeniAiTokenCount(self):
         try:

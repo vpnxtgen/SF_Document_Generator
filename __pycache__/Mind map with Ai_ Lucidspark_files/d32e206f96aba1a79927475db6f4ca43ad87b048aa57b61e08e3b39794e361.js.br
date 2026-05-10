@@ -1,0 +1,10 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="911e3605-6c4f-56c1-a05e-3a8dd932478a")}catch(e){}}();
+function UcG5n(a){a&1&&(UcX(0,"lucid-hyperlink",3),Uc1(1),UcY());a&2&&(a=Uc0(),UcW("href",a.linkUrl),UcS(),UcQp(" ",a.nqb," "))}var UcH5n=class{constructor(){this.nqb=this.Atk="";this.linkUrl=void 0;this.icons={D0:UcLr}}};UcH5n.za=[{type:Uc3,args:[{selector:"lucid-disclaimer",templateUrl:"./disclaimer.component.html",Oa:"./disclaimer.component.css",changeDetection:UcR.OnPush,imports:[UcMw,Uc7,UcMu]}]}];UcH5n.hb={Atk:[{type:Uc4}],nqb:[{type:Uc4}],linkUrl:[{type:Uc4}]};
+UcH5n.wa=function(a){return new (a||UcH5n)};
+UcH5n.Ka=UcT({type:UcH5n,Fa:[["lucid-disclaimer"]],inputs:{Atk:"disclaimerText",nqb:"linkText",linkUrl:"linkUrl"},Ja:4,Ia:3,Ma:[[3,"icon"],[1,"disclaimer-text"],["target","_blank","data-test-id","disclaimer-hyperlink",3,"href",4,"ngIf"],["target","_blank","data-test-id","disclaimer-hyperlink",3,"href"]],template:function(a,b){a&1&&(UcZ(0,"lucid-icon",0),UcX(1,"p",1),Uc1(2),UcV(3,UcG5n,2,2,"lucid-hyperlink",2),UcY());a&2&&(UcW("icon",b.icons.D0),UcS(2),UcQp(" ",b.Atk," "),UcS(),UcW("ngIf",b.linkUrl))},
+dependencies:[UcMw,Uc7,Uc6,UcMu],styles:["[_nghost-%COMP%]{display:-webkit-box;display:-ms-flexbox;display:flex;padding:8px 12px;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;gap:8px;-webkit-box-flex:1;-ms-flex:1 0 0px;flex:1 0 0;border-radius:var(--strata-radius-sm,4px);background-color:var(--lucid-design-token-tertiary-background-color,#f2f3f5);color:var(--strata-foreground-primary,#282c33)}.disclaimer-text[_ngcontent-%COMP%]{font-size:var(--caption-font-size, 12px);line-height:var(--caption-line-height, 16px);font-weight:400;font-style:normal;font-stretch:normal;margin:0;text-wrap:wrap}"],
+changeDetection:0});
+
+
+//# debugId=911e3605-6c4f-56c1-a05e-3a8dd932478a

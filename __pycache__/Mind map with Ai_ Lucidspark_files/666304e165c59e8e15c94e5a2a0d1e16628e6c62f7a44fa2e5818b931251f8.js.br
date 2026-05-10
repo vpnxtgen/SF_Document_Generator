@@ -1,0 +1,7 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="e53b6829-3747-5670-9c1b-44e45b4743b8")}catch(e){}}();
+UcOC.prototype.quf=Uci(2066,function(){this.BBl=this.Oyd.value;UczEg(this,!0,UcNC.cqd)});function Ucx3n(a,b,c){return Ucf(function*(){const d=yield a.frk.main({userId:b,xTc:c})({});Ucst(d)})}function Ucy3n(a,b){return Ucf(function*(){yield Ucx3n(a.$qh,a.user.getId(),b);a.moc()})}
+function Ucz3n(a,b,c,d){if((c==null?void 0:c.toString())!==a.user.ib)return d;if(Uc_u(Ucr5f(a.Fd,b).value)!=null)return i18n.get("collaborator-archived-team-name");if(!a.Fd.p2a.value.has(b))return i18n.get("collaborator-hidden-team-name");a=Uc_u(UcLz(a.Fd,b).value);return a!=null?a:d}var UcA3n=class{constructor(){this.Fd=Ucx(UccB);this.user=Ucx(Uc_w)}};
+
+
+//# debugId=e53b6829-3747-5670-9c1b-44e45b4743b8

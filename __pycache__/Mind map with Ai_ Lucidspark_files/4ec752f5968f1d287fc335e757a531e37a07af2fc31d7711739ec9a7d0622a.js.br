@@ -1,0 +1,7 @@
+'use strict';
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="620be956-2221-521e-89bd-8bb95ec059ee")}catch(e){}}();
+var UcGUn={Eod:"drag and drop",W7q:"manage collaborators modal",zbr:"move-to model (docslist)",Abr:"move-to model (editor)",Bbr:"move-to-team modal (team onboarding progress tracker)",PSm:"move-to-team model (team documents)",Cbr:"move-to-team model (team hub)",WRr:"team folder to team modal"};({}).YKz;var UcHUn=Ucbd(UcGUn);var UcIUn,UcJUn=UcIUn=class{constructor(a){this.name="movedContentToTeam";this.kh=a.kh;this.we=a.we;this.userId=a.userId;this.My=a.My;this.Opa=a.Opa;this.dml=a.dml;this.IYg=a.IYg;this.htf=a.htf}toJSON(){return UcIUn.Ta(this)}};UcJUn.Oc="movedContentToTeam";
+UcJUn=UcIUn=__decorate([Uck({kh:["entryPoint",UcHUn],we:["teamId",Ucl],userId:["userId",Uc6c],My:["documentIds",Ucj(UcWc(Ucl))],Opa:["folderIds",Ucj(UcWc(Ucl))],dml:["movedToExistingTeam",Ucj(Uc1c)],IYg:["numDocuments",Ucj(Uc6c)],htf:["numFolders",Ucj(Uc6c)],name:["name",UcJd("movedContentToTeam")]}),__metadata("design:paramtypes",[Object])],UcJUn);
+
+
+//# debugId=620be956-2221-521e-89bd-8bb95ec059ee

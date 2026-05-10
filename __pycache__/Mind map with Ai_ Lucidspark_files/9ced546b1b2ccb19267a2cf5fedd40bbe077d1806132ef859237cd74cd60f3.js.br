@@ -1,0 +1,6 @@
+i18n.setData(
+    JSON.parse(
+        "{\"avatar-image-alt-text\":\"User avatar image\",\"error-forbidden-no-permissions\":\"You do not have permission to view this page\",\"error-not-found\":\"The resource you were trying to access was not found.\",\"error-too-many-requests-v2\":\"You've made multiple requests and have hit your rate limit. Try again later.\",\"error-unauthorized-requires-login\":\"You need to <w0>login</w0> to view this page\",\"error-unknown-details\":\"Error\",\"organizer-title-block-placeholder\":\"Add title\",\"shape-styles-style-default\":\"Style {style}\",\"workbench-zero-state-browse-text\":\"Search and add toolkits, shapes, and tools to your document tools.\",\"workbench-zero-state-heading\":\"Nothing added to document tools.\",\"workbench-zero-state-title\":\"Document tools\"}"
+    ),
+    'en'
+);
