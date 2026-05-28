@@ -29,12 +29,27 @@ def index():
 def run_script():
     topic = request.form.get('topic')
     storage_path = request.form.get('storagePath')
+    promptType = request.form.get('promptType')    
     
     print(f"Received topic: {topic}, storage_path: {storage_path}")
     
+    promptBox = request.form.get('prompt_content')
     
-    if not topic :
+    print(f"Received prompt Box: {promptBox}")
+    
+    websiteContent = request.form.get('website_content')
+    urlInput =  request.form.get('website_urls')
+    
+    print(f"Received prompt Box: {websiteContent}, urlInput: {urlInput}")
+    
+    if promptType == 'UploadPrompt' and  not topic :
         return "Topic and Storage Path are required.", 400
+    elif promptType == 'WebsiteReference' and not promptBox :
+        return "Prompt Box  is requried.", 400
+    elif promptType == 'SalesforceTopic' and (websiteContent and urlInput):
+        return "Website Content and URL Input is requried.",400
+    else:
+        print(f'selected option:{topic}, promptBox option: {promptBox}, websiteContent option {websiteContent}')
     
     try:
         dg.executeDoc(topic, storage_path)
