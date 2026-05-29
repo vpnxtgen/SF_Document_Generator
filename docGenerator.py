@@ -1,5 +1,6 @@
 from SfDocumentBuilder import SalesforceTopicGenerator as SfDocBuilder
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
+import os
 
 
 class DocGenerator:
@@ -78,6 +79,10 @@ def run_script():
             dg.executeDoc(prompt_type, None, website_content, website_urls, None)
         else:
             return f"Unknown prompt type: '{prompt_type}'.", 400
+        
+        # ✅ Send the file back as a download
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output", "Salesforce_Notes.docx")
+        return send_file(file_path, as_attachment=True, download_name="Salesforce_Notes.docx")
 
         return "Document generation initiated successfully.", 200
 
@@ -86,4 +91,9 @@ def run_script():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #Old : commented to run in the local
+    #app.run(debug=True)
+    
+    #New : to run in server
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

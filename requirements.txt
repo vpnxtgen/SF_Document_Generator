@@ -1,0 +1,6 @@
+flask
+python-docx
+google-genai
+openai
+python-dotenv
+gunicorn
