@@ -341,6 +341,8 @@ class SalesforceTopicGenerator:
                 doc = Document()
 
             self.generateDocument(json_response, doc)
+            
+            return full_path 
 
         except Exception as e:
             print(f"Error in appendToSpecificPath: {e}")
