@@ -318,7 +318,9 @@ class SalesforceTopicGenerator:
     # ── orchestration ────────────────────────────────────────────────────
 
     def appendToSpecificPath(self, json_response: dict):
-        folder_path = r"D:/SF_Interview_Hub"
+        #folder_path = r"D:/SF_Interview_Hub" --> used in local folder
+        
+        folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
         try:
             if not json_response:
                 print("No response to append.")
@@ -365,83 +367,3 @@ class SalesforceTopicGenerator:
                 raise ValueError(f"Error Message : {response.get('error').get('message')}")
         except Exception as e:
             print(f"Error processing topic '{topic}': {e}")
-
-'''
-# ── quick smoke-test (no AI needed) ─────────────────────────────────────────
-if __name__ == "__main__":
-    sample = {
-        "topic": "Salesforce Public Groups – Architecture & Implementation",
-        "summary": [
-            "Public Groups are versatile administrative containers that aggregate users, "
-            "roles, territories, and other groups to streamline record sharing.",
-            "They are foundational to both declarative and programmatic sharing models.",
-        ],
-        "sections": [
-            {
-                "heading": "Core Architecture and Schema",
-                "content": [
-                    "Object Model: Public Groups are stored in the Group object with Type='Regular'.",
-                    "Membership Junction: GroupMember object links users/groups via UserOrGroupId → GroupId.",
-                    "Member Types: Individual Users, Roles, RoleAndInternalSubordinates, Territories, Nested Groups.",
-                    "API Integration: Referenced in Share objects (e.g. AccountShare) via UserOrGroupId.",
-                ],
-            },
-            {
-                "heading": "Nesting and Hierarchical Logic",
-                "content": [
-                    "Multilevel Nesting: Groups can be nested allowing complex, non-linear access structures.",
-                    "Access Inheritance: Members of a nested group inherit access granted to the parent.",
-                    "Hierarchy Control: 'Grant Access Using Hierarchies' determines if managers auto-gain access.",
-                    "Confidentiality Patterns: Disabling hierarchy access creates 'Siloed Groups'.",
-                ],
-            },
-            {
-                "heading": "System Governance and Scalability",
-                "content": [
-                    "Nesting Limit: Max 5 levels recommended to avoid performance degradation.",
-                    "Org Limit: Keep total Public Groups under 100,000 per org.",
-                    "Calculation Overhead: Membership changes trigger recursive sharing recalculation (costly on LDV).",
-                    "Deferred Sharing: Use 'Defer Sharing Calculations' during bulk loads or major reshuffles.",
-                ],
-            },
-        ],
-        "best_practices": [
-            "Minimise deep nesting (beyond 3 levels) to optimise sharing engine performance.",
-            "Use Public Groups for 'horizontal' sharing that cuts across the role hierarchy.",
-            "Disable 'Grant Access Using Hierarchies' for groups handling sensitive HR or M&A records.",
-            "Adopt a naming convention (e.g. PG_Region_ProjectName) to distinguish from roles/queues.",
-            "Prefer roles/territories over individual users to reduce administrative overhead.",
-        ],
-        "limitations": [
-            "Maximum nesting depth is 5 levels; deeper nesting hurts maintenance and performance.",
-            "Maximum of 100,000 public groups per org.",
-            "High-concurrency membership updates can cause Row Lock errors on the Group object.",
-            "Group membership alone does not grant record access — must be paired with a Sharing Rule or Apex Share.",
-        ],
-        "flow_diagram": {
-            "representation": (
-                "[Member Entities: Users / Roles / Territories / Sub-Groups] -> "
-                "[GroupMember Junction] -> "
-                "[Public Group (Type: Regular)] -> "
-                "[Sharing Tool: Sharing Rules / Apex Sharing / Manual Sharing] -> "
-                "[Access Result: AccountShare / CustomObject__Share]"
-            )
-        },
-        "example": (
-            "Scenario: A global org needs APAC Sales Reps and APAC Managers to share "
-            "Opportunity records without exposing them to EMEA.\n\n"
-            "1. Create PG_APAC_Sales  → add Role: APAC Sales Rep\n"
-            "2. Create PG_APAC_Mgmt  → add Role: APAC Manager\n"
-            "3. Create PG_APAC_All   → nest PG_APAC_Sales + PG_APAC_Mgmt\n"
-            "4. Create Criteria-Based Sharing Rule: Opportunity.Region = 'APAC'\n"
-            "   → Share with PG_APAC_All at Read/Write\n"
-            "5. Disable 'Grant Access Using Hierarchies' on PG_APAC_All\n"
-            "   to prevent Global VP from auto-inheriting access."
-        ),
-    }
-
-    gen = SalesforceTopicGenerator("SF_PublicGroups_Demo.docx")
-    doc = Document()
-    gen.generateDocument(sample, doc)
-    print("Demo document created: SF_PublicGroups_Demo.docx")
-'''
