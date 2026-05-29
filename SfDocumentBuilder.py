@@ -394,7 +394,7 @@ class SalesforceTopicGenerator:
             print("Gemini Response:", response)
             
             if response and 'error' not in response:
-                self.appendToSpecificPath(response)
+                return self.appendToSpecificPath(response)
             else: 
                 raise ValueError(f"Error Message : {response.get('error').get('message')}")
         except Exception as e:
