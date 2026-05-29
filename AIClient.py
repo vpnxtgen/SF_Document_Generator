@@ -10,8 +10,11 @@ class AIClient:
     def __init__(self, env_var_name):
         try:
             print('inside the AI Client env_var_name ', env_var_name)
-            load_dotenv()
-            self.ApiKey = env_var_name
+            #load_dotenv() --> used for loading the local env
+            #self.ApiKey
+            # render server 
+            
+            self.ApiKey = os.getenv(env_var_name)
         except Exception as e:
             print(f"Error during initialization: {e}")
 
