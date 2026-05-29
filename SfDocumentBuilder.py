@@ -316,7 +316,7 @@ class SalesforceTopicGenerator:
             raise
 
     # ── orchestration ────────────────────────────────────────────────────
-
+    '''
     def appendToSpecificPath(self, json_response: dict):
         #folder_path = r"D:/SF_Interview_Hub" --> used in local folder
         
@@ -346,7 +346,37 @@ class SalesforceTopicGenerator:
 
         except Exception as e:
             print(f"Error in appendToSpecificPath: {e}")
+    '''
+    # Method used for render.com
+    def appendToSpecificPath(self, json_response: dict):
+        folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
 
+        try:
+            if not json_response:
+                print("No response to append.")
+                return
+
+            # ✅ Fix 1: Create folder FIRST before using full_path
+            os.makedirs(folder_path, exist_ok=True)
+
+            full_path = os.path.join(folder_path, self.fileName)
+
+            if os.path.isfile(full_path):
+                print(f"Appending to existing file: {full_path}")
+                doc = Document(full_path)
+                doc.add_page_break()
+            else:
+                print(f"Creating new file: {full_path}")
+                doc = Document()
+
+            self.generateDocument(json_response, doc)
+
+            return full_path  # ✅ Fix 2: Return path so Flask can send the file
+
+        except Exception as e:
+            print(f"Error in appendToSpecificPath: {e}")
+            raise  # ✅ Fix 3: Raise so Flask returns a proper 500 error
+        
     def processTopic(self, prompt_type, topic,
                      website_content=None, website_urls=None,
                      upload_content=None):
