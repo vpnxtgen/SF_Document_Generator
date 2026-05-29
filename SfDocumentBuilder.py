@@ -356,7 +356,7 @@ class SalesforceTopicGenerator:
                 print("No response to append.")
                 return
 
-            # ✅ Fix 1: Create folder FIRST before using full_path
+            # Create folder FIRST before using full_path
             os.makedirs(folder_path, exist_ok=True)
 
             full_path = os.path.join(folder_path, self.fileName)
@@ -371,11 +371,11 @@ class SalesforceTopicGenerator:
 
             self.generateDocument(json_response, doc)
 
-            return full_path  # ✅ Fix 2: Return path so Flask can send the file
+            return full_path  # Return path so Flask can send the file
 
         except Exception as e:
             print(f"Error in appendToSpecificPath: {e}")
-            raise  # ✅ Fix 3: Raise so Flask returns a proper 500 error
+            raise  # Raise so Flask returns a proper 500 error
         
     def processTopic(self, prompt_type, topic,
                      website_content=None, website_urls=None,
