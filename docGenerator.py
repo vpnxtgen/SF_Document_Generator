@@ -16,7 +16,7 @@ class DocGenerator:
                 raise ValueError("Website content or URL is required for WebsiteReference.")
 
             sf = SfDocBuilder('Salesforce_Notes.docx')
-            sf.processTopic(prompt_type, topic, website_content, website_urls, upload_content)
+            return sf.processTopic(prompt_type, topic, website_content, website_urls, upload_content)
 
         except Exception as e:
             print(f"Error executing document generation: {e}")

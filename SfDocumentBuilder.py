@@ -166,7 +166,7 @@ class SalesforceTopicGenerator:
                 {content_block}
                 {urls_block}
                 {shared_requirements}
-                - Prioritise and expand on concepts in the reference material.
+                - Prioritize and expand on the concepts in the reference material and break down the posted content into points.
                 - Supplement with your own Salesforce expertise where needed.
             """
 
@@ -358,8 +358,11 @@ class SalesforceTopicGenerator:
         try:
             response = ai_client.gemeniAiConnect(prompt=built_prompt)
             print("Gemini Response:", response)
-            if response:
+            
+            if response and 'error' not in response:
                 self.appendToSpecificPath(response)
+            else: 
+                raise ValueError(f"Error Message : {response.get('error').get('message')}")
         except Exception as e:
             print(f"Error processing topic '{topic}': {e}")
 
